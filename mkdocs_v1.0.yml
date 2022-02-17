@@ -1,6 +1,6 @@
 site_name: suda docs v1.0
 
-docs_dir: 'docs_v1.0'
+docs_dir: 'source_v1.0'
 
 site_dir: 'v1.0'
 

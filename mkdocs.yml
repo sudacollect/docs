@@ -2,9 +2,9 @@ site_name: suda docs v5.0
 
 site_url: 'https://docs.gtd.xyz'
 
-docs_dir: 'docs'
+docs_dir: 'sources'
 
-site_dir: 'v5.0'
+site_dir: 'docs'
 
 nav:
     - 基本介绍:
