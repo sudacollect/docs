@@ -1,0 +1,47 @@
+site_name: suda docs v1.0
+
+docs_dir: 'docs_v1.0'
+
+site_dir: 'v1.0'
+
+site_url: https://docs.gtd.xyz/v1.0/
+
+nav:
+    - 基本介绍:
+        - 欢迎使用: index.md
+        - 安装步骤: install.md
+        # - 商业加密: encode.md
+        - 授权说明: certi.md
+        - 更新说明: update.md
+        # - 从1.0升级: upgrade.md
+    - 内置功能:
+        - '基础配置': 'basic/config.md'
+        - '路由机制': 'basic/route.md'
+        - '系统设置': 'basic/setting.md'
+        - '菜单管理': 'basic/menu.md'
+        - '分类管理': 'basic/taxonomy.md'
+        - '标签管理': 'basic/tag.md'
+        - '页面管理': 'basic/pages.md'
+        - '文章管理': 'basic/articles.md'
+        - '应用管理': 'basic/extensions.md'
+        - '模板管理': 'basic/theme.md'
+        - '上传图片': 'basic/media.md'
+        - '用户头像': 'basic/avatar.md'
+        - '模态框': 'basic/modalbox.md'
+        - '侧边框': 'basic/filterbox.md'
+        - '编辑器': 'basic/editor.md'
+        - '权限方案': 'basic/policy.md'
+        - '内置函数': 'basic/functions.md'
+    - 开发应用:
+        - '目录信息': 'dev-files.md'
+        - '常用命令': 'dev-command.md'
+        - '开发应用': 'dev-extension.md'
+    - 设计模板:
+        - '制作模板': 'theme.md'
+        - '模板插件': 'widget.md'
+    - 设计规范:
+        - '图标制作': 'icons.md'
+
+theme:
+    name: mkdocs
+    custom_dir: mkdocs_gitbook/

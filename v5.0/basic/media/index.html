@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>上传图片 - suda docs v5.0</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.2.3, mkdocs-gitbook-">
+
+<link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="../../css/style.min.css" rel="stylesheet">
+<link href="../../css/ecdo.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href="../.." target="_blank" class="custom-link">suda docs v5.0</a>
+</li>
+<li class="divider"></li>
+<li class="header">基本介绍</li>
+
+<li>
+<a href="../.." class="">欢迎使用</a>
+</li>
+
+<li>
+<a href="../../install/" class="">安装步骤</a>
+</li>
+
+<li>
+<a href="../../update/" class="">更新说明</a>
+</li>
+
+<li class="header">内置功能</li>
+
+<li>
+<a href="../config/" class="">基础配置</a>
+</li>
+
+<li>
+<a href="../route/" class="">路由机制</a>
+</li>
+
+<li>
+<a href="../setting/" class="">系统设置</a>
+</li>
+
+<li>
+<a href="../menu/" class="">菜单管理</a>
+</li>
+
+<li>
+<a href="../taxonomy/" class="">分类管理</a>
+</li>
+
+<li>
+<a href="../tag/" class="">标签管理</a>
+</li>
+
+<li>
+<a href="../pages/" class="">页面管理</a>
+</li>
+
+<li>
+<a href="../articles/" class="">文章管理</a>
+</li>
+
+<li>
+<a href="../extensions/" class="">应用管理</a>
+</li>
+
+<li>
+<a href="../theme/" class="">模板管理</a>
+</li>
+
+<li>
+<a href="./" class="active">上传图片</a>
+</li>
+
+<li>
+<a href="../avatar/" class="">用户头像</a>
+</li>
+
+<li>
+<a href="../modalbox/" class="">模态框</a>
+</li>
+
+<li>
+<a href="../filterbox/" class="">侧边框</a>
+</li>
+
+<li>
+<a href="../editor/" class="">编辑器</a>
+</li>
+
+<li>
+<a href="../policy/" class="">权限方案</a>
+</li>
+
+<li>
+<a href="../functions/" class="">内置函数</a>
+</li>
+
+<li class="header">开发应用</li>
+
+<li>
+<a href="../../dev-files/" class="">目录信息</a>
+</li>
+
+<li>
+<a href="../../dev-command/" class="">常用命令</a>
+</li>
+
+<li>
+<a href="../../dev-extension/" class="">开发应用</a>
+</li>
+
+<li class="header">设计模板</li>
+
+<li>
+<a href="../../theme/" class="">制作模板</a>
+</li>
+
+<li>
+<a href="../../widget/" class="">模板插件</a>
+</li>
+
+<li class="header">设计规范</li>
+
+<li>
+<a href="../../icons/" class="">图标制作</a>
+</li>
+
+<li class="divider"></li>
+
+
+
+
+<li><a href="http://suda.gtd.xyz">
+    Created by Suda
+    </a></li>
+
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+
+
+
+<section class="normal markdown-section">
+
+
+
+<h1 id="_1">图片文件管理</h1>
+<p><strong>图片资源数据表</strong></p>
+<p>medias 存储图片数据<br />
+mediatables 图片数据关系表</p>
+<p>具体可查看数据表字段。</p>
+<p><strong>1. 定义media</strong></p>
+<pre><code>//Model定义
+use Gtd\Suda\Traits\MediaTrait;
+
+class Album extends Model
+{
+    use MediaTrait;
+    public function media_images()
+    {
+        return $this-&gt;hasMany('Gtd\Suda\Models\Mediatable','mediatable_id','id')-&gt;where('mediatable_type','App\Extensions\Demo\Models\Album')-&gt;where('position','album')-&gt;with('media');
+    }
+}
+</code></pre>
+<p>其中mediatable_type 对应的配置在config/suda_custom.php中新增</p>
+<pre><code>'media'=&gt;[
+    'types_model'=&gt;[
+
+        //增加一行
+        'album'=&gt;'App\Extensions\Startup\Models\Album',
+    ]
+]
+</code></pre>
+<p>在控制器中使用时</p>
+<pre><code>$album-&gt;with('media_images');
+</code></pre>
+<p><strong>2. 上传组件</strong></p>
+<p>在blade中直接使用</p>
+<pre><code>// album 表示对应图片的关联类型
+// 4 表示最大上传数量
+// 2 表示每行显示的上传框是2个, 即显示2行
+// $media表示图片信息，增加时可为空
+@uploadBox(['album','4','2',$media])
+</code></pre>
+<p>定义图片的路由信息（必须）</p>
+<pre><code>@push('scripts')
+&lt;script type=&quot;text/javascript&quot;&gt;
+    $(document).ready(function(){
+        $.fn.mediabox({
+                media_type: 'editor',//类型
+                modal_url: 'sdone/modal/media/editor',//打开图片窗口
+                upload_url: 'sdone/upload/image/editor'//上传链接
+            });
+    })
+&lt;/script&gt;
+@endpush
+</code></pre>
+<p>说明: uploadBox 组件使用时，需要配合图片选框.</p>
+<p><strong>3. 图片选框</strong></p>
+<p>在了解以上内容后，配合uploadBox的使用，图片选框的设置非常简单</p>
+<p>1.设置路由</p>
+<pre><code>//调取图片上传界面
+Route::get('你的自定义路径/{media_type}','MediasController@modal');
+
+//图片上传处理
+Route::post('{你的自定义路径}/{media_type}','MediasController@uploadImage');
+
+
+</code></pre>
+<p>这里的 media_type 必须写成传参的方式才可以执行。</p>
+<p>内置的modal方法和uploadImage方法的第二个参数就是media_type</p>
+<p>2.设置你的图片控制器</p>
+<pre><code>namespace 你的路径\Controllers;
+
+//把这里改为自己需要使用的控制器，才能获取到，并且可以设置到$this-&gt;user;
+use App\Extensions\Demo\Controllers\Admin\AdminController;
+
+use Gtd\Suda\Traits\MediaBoxTrait;
+
+class MediasController extends DashboardController
+{
+    use MediaBoxTrait;
+
+    function mediaSetting(){
+
+            //参数说明
+            //guard: guard key, config/auth.php
+            //onlyUser: 默认false, 是否只显示当前用户
+            //resize: 默认true,自动生成缩略图
+            //ratio: 默认false,是否缩放图片
+          $this-&gt;guard = 'operate';
+    }
+
+}
+</code></pre>
+<p>说明：</p>
+<p>在MediaBoxTrait中已经定义了图片选框所需要的方法，这里控制器的设置方法是为了在方法中可以获取对应的用户信息，因为保存图片需要用户类型和用户ID。</p>
+<p>这样可以支持在多个应用场景中使用图片选框, 例如商家后台、用户中心可以区分。</p>
+
+
+</section>
+
+
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="../../js/main.js"></script>
+<script src="../../js/gitbook.min.js"></script>
+<script src="../../js/theme.min.js"></script>
+<script>
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?bd2b64ce44c960c3579b7a335aa3fd5c";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    
+</body>
+</html>

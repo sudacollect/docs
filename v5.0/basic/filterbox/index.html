@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>侧边框 - suda docs v5.0</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.2.3, mkdocs-gitbook-">
+
+<link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="../../css/style.min.css" rel="stylesheet">
+<link href="../../css/ecdo.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href="../.." target="_blank" class="custom-link">suda docs v5.0</a>
+</li>
+<li class="divider"></li>
+<li class="header">基本介绍</li>
+
+<li>
+<a href="../.." class="">欢迎使用</a>
+</li>
+
+<li>
+<a href="../../install/" class="">安装步骤</a>
+</li>
+
+<li>
+<a href="../../update/" class="">更新说明</a>
+</li>
+
+<li class="header">内置功能</li>
+
+<li>
+<a href="../config/" class="">基础配置</a>
+</li>
+
+<li>
+<a href="../route/" class="">路由机制</a>
+</li>
+
+<li>
+<a href="../setting/" class="">系统设置</a>
+</li>
+
+<li>
+<a href="../menu/" class="">菜单管理</a>
+</li>
+
+<li>
+<a href="../taxonomy/" class="">分类管理</a>
+</li>
+
+<li>
+<a href="../tag/" class="">标签管理</a>
+</li>
+
+<li>
+<a href="../pages/" class="">页面管理</a>
+</li>
+
+<li>
+<a href="../articles/" class="">文章管理</a>
+</li>
+
+<li>
+<a href="../extensions/" class="">应用管理</a>
+</li>
+
+<li>
+<a href="../theme/" class="">模板管理</a>
+</li>
+
+<li>
+<a href="../media/" class="">上传图片</a>
+</li>
+
+<li>
+<a href="../avatar/" class="">用户头像</a>
+</li>
+
+<li>
+<a href="../modalbox/" class="">模态框</a>
+</li>
+
+<li>
+<a href="./" class="active">侧边框</a>
+</li>
+
+<li>
+<a href="../editor/" class="">编辑器</a>
+</li>
+
+<li>
+<a href="../policy/" class="">权限方案</a>
+</li>
+
+<li>
+<a href="../functions/" class="">内置函数</a>
+</li>
+
+<li class="header">开发应用</li>
+
+<li>
+<a href="../../dev-files/" class="">目录信息</a>
+</li>
+
+<li>
+<a href="../../dev-command/" class="">常用命令</a>
+</li>
+
+<li>
+<a href="../../dev-extension/" class="">开发应用</a>
+</li>
+
+<li class="header">设计模板</li>
+
+<li>
+<a href="../../theme/" class="">制作模板</a>
+</li>
+
+<li>
+<a href="../../widget/" class="">模板插件</a>
+</li>
+
+<li class="header">设计规范</li>
+
+<li>
+<a href="../../icons/" class="">图标制作</a>
+</li>
+
+<li class="divider"></li>
+
+
+
+
+<li><a href="http://suda.gtd.xyz">
+    Created by Suda
+    </a></li>
+
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+
+
+
+<section class="normal markdown-section">
+
+
+
+<h1 id="_1">右侧滑出框</h1>
+<blockquote>
+<p>可在控制后台参照文章的更多筛选功能</p>
+<p>内置函数已经支持调用滑出框和按钮动作、分页的ajax操作</p>
+</blockquote>
+<h2 id="view">View 定义</h2>
+<h3 id="_2">定义一个按钮</h3>
+<pre><code>&lt;button class=&quot;btn btn-light more-filter&quot; data-element=&quot;.data-list&quot;&gt;&lt;i class=&quot;icon ion-options&quot;&gt;&lt;/i&gt;&amp;nbsp;更多筛选&lt;/button&gt;
+</code></pre>
+<p>关键参数 <code>more-filter</code> 用于赋予动作</p>
+<p>关键参数 <code>data-element</code> 定义搜索结果的替换位置</p>
+<h3 id="filter">引入 filter 文件</h3>
+<pre><code>@include('view_suda::admin.article.filter')
+</code></pre>
+<pre><code>&lt;div class=&quot;more-filter-section&quot; id=&quot;filter-options&quot;&gt;
+    &lt;a href=&quot;javascript:void(0)&quot; class=&quot;filter-close&quot;&gt;&lt;/a&gt;
+    &lt;h5 class=&quot;title&quot;&gt;&lt;i class=&quot;zly-screen&quot;&gt;&lt;/i&gt;&amp;nbsp;更多筛选&lt;/h5&gt;
+
+    &lt;div class=&quot;col-sm-12 content&quot;&gt;
+
+        &lt;!-- 可修改区域 start --&gt;
+        &lt;form action=&quot;{{ admin_url('article/filter') }}&quot; class=&quot;filter-form&quot;&gt;
+
+            &lt;div class=&quot;form-group{{ $errors-&gt;has('title') ? ' has-error' : '' }}&quot; &gt;
+                &lt;label for=&quot;title&quot; class=&quot;control-label&quot;&gt;
+                    标题
+                &lt;/label&gt;
+                &lt;input type=&quot;text&quot; name=&quot;title&quot; class=&quot;form-control form-control-sm&quot; id=&quot;title&quot; placeholder=&quot;请输入标题&quot;&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;!-- 按钮不可修改 --&gt;
+                &lt;button class=&quot;btn btn-primary btn-sm filter-submit&quot;&gt;立即筛选&lt;/button&gt;
+                &lt;button class=&quot;btn btn-light btn-sm filter-reset&quot;&gt;重置条件&lt;/button&gt;
+            &lt;/div&gt;
+
+        &lt;/form&gt;
+        &lt;!-- 可修改区域 end --&gt;
+
+    &lt;/div&gt;
+
+
+&lt;/div&gt;
+</code></pre>
+<h3 id="js">定义JS</h3>
+<pre><code>@push('scripts')
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+    $(document).ready(function(){
+        $('.more-filter').zfilter();
+    });
+&lt;/script&gt;
+@endpush
+</code></pre>
+<h3 id="articlecontroller">ArticleController 中定义的方法</h3>
+<pre><code>public function processFilter(Request $request)
+{
+    if(!$request-&gt;filter){
+        return $this-&gt;responseAjax('error','查询异常,请重新尝试.');
+    }
+
+    //根据获取的条件，进行查询获取相应的文件
+    //$data = Article::where()...
+
+    $this-&gt;setData('data_list',$data);
+
+     //直接输出HTML内容
+    return $this-&gt;display('article.list_content')-&gt;render();
+}
+</code></pre>
+
+
+</section>
+
+
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="../../js/main.js"></script>
+<script src="../../js/gitbook.min.js"></script>
+<script src="../../js/theme.min.js"></script>
+<script>
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?bd2b64ce44c960c3579b7a335aa3fd5c";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    
+</body>
+</html>

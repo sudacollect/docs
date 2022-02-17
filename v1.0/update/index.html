@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>更新说明 - zest docs v1.0</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.0.4, mkdocs-gitbook-">
+
+<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="../css/style.min.css" rel="stylesheet">
+<link href="../css/ecdo.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href=".." target="_blank" class="custom-link">zest docs v1.0</a>
+</li>
+<li class="divider"></li>
+<li class="header">基本介绍</li>
+
+<li>
+<a href=".." class="">欢迎使用</a>
+</li>
+
+<li>
+<a href="../install/" class="">安装步骤</a>
+</li>
+
+<li>
+<a href="../certi/" class="">授权说明</a>
+</li>
+
+<li>
+<a href="./" class="active">更新说明</a>
+</li>
+
+<li class="header">内置功能</li>
+
+<li>
+<a href="../basic/config/" class="">基础配置</a>
+</li>
+
+<li>
+<a href="../basic/route/" class="">路由机制</a>
+</li>
+
+<li>
+<a href="../basic/setting/" class="">系统设置</a>
+</li>
+
+<li>
+<a href="../basic/menu/" class="">菜单管理</a>
+</li>
+
+<li>
+<a href="../basic/taxonomy/" class="">分类管理</a>
+</li>
+
+<li>
+<a href="../basic/tag/" class="">标签管理</a>
+</li>
+
+<li>
+<a href="../basic/pages/" class="">页面管理</a>
+</li>
+
+<li>
+<a href="../basic/articles/" class="">文章管理</a>
+</li>
+
+<li>
+<a href="../basic/extensions/" class="">应用管理</a>
+</li>
+
+<li>
+<a href="../basic/theme/" class="">模板管理</a>
+</li>
+
+<li>
+<a href="../basic/media/" class="">上传图片</a>
+</li>
+
+<li>
+<a href="../basic/avatar/" class="">用户头像</a>
+</li>
+
+<li>
+<a href="../basic/modalbox/" class="">模态框</a>
+</li>
+
+<li>
+<a href="../basic/filterbox/" class="">侧边框</a>
+</li>
+
+<li>
+<a href="../basic/editor/" class="">编辑器</a>
+</li>
+
+<li>
+<a href="../basic/policy/" class="">权限方案</a>
+</li>
+
+<li>
+<a href="../basic/functions/" class="">内置函数</a>
+</li>
+
+<li class="header">开发应用</li>
+
+<li>
+<a href="../dev-files/" class="">目录信息</a>
+</li>
+
+<li>
+<a href="../dev-command/" class="">常用命令</a>
+</li>
+
+<li>
+<a href="../dev-extension/" class="">开发应用</a>
+</li>
+
+<li class="header">设计模板</li>
+
+<li>
+<a href="../theme/" class="">制作模板</a>
+</li>
+
+<li>
+<a href="../widget/" class="">模板插件</a>
+</li>
+
+<li class="header">设计规范</li>
+
+<li>
+<a href="../icons/" class="">图标制作</a>
+</li>
+
+<li class="divider"></li>
+
+
+
+
+<li><a href="http://www.quyouinc.com">
+    Created by Quyouinc
+    </a></li>
+
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+
+
+
+<section class="normal markdown-section">
+
+
+
+<h1 id="_1">更新</h1>
+<h4 id="_2">在线更新方法</h4>
+<pre><code>#企业级私有版本
+composer update ecdo/zhila
+</code></pre>
+
+<h4 id="_3">下载更新</h4>
+<pre><code>在用户中心下载最新版本替换
+替换后执行以下 资源/数据表 更新即可
+</code></pre>
+
+<h4 id="_4">资源/数据表更新</h4>
+<p><strong>静态资源和模板 更新</strong></p>
+<pre><code>#更新静态资源
+php artisan zhila:reset assets
+</code></pre>
+
+<pre><code>#更新自带模板
+php artisan zhila:reset themes
+</code></pre>
+
+<pre><code>#数据表更新
+php artisan migrate
+</code></pre>
+
+
+</section>
+
+
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="../js/main.js"></script>
+<script src="../js/gitbook.min.js"></script>
+<script src="../js/theme.min.js"></script>
+<script>
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?bd2b64ce44c960c3579b7a335aa3fd5c";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    
+</body>
+</html>
