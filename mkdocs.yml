@@ -30,6 +30,7 @@ nav:
         - '权限方案': 'basic/policy.md'
         - '内置函数': 'basic/functions.md'
     - 开发应用:
+        - '应用介绍': 'dev-intro.md'
         - '目录信息': 'dev-files.md'
         - '常用命令': 'dev-command.md'
         - '开发应用': 'dev-extension.md'
