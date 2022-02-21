@@ -2,30 +2,32 @@
 #更新
 
 
-#### 开源版本
+**在线更新**
 
 ```
-#在线更新
 composer update gtdxyz/suda
 ```
 
-#### 企业私有部署
+## 私有部署
+
+1. 下载最新版本替换
+2. 执行更新命令
 
 ```
-1. 在用户中心下载最新版本替换
-2. 替换后执行 composer update gtd/suda
+composer update gtdxyz/suda
 ```
 
-#### 资源/数据表更新
+## 资源更新
 
+**CSS/JS/图片等资源**
 
 ```
-#静态资源
 php artisan suda:reset assets
 ```
 
+**内置主题风格**
+
 ```
-#自带模板
 php artisan suda:reset themes
 ```
 
