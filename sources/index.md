@@ -1,5 +1,5 @@
 
-![suda-logo](https://docs.gtd.xyz/doc_logo.png)
+![suda-logo](https://github.com/sudacollect/docs.gtd.xyz/blob/381f3f1706ec960f8755703a58dd8124d61cf8d8/doc_logo.png)
 
 
 # ABOUT
