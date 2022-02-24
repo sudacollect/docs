@@ -14,7 +14,7 @@ nav:
     - 内置功能:
         - '基础配置': 'basic/config.md'
         - '路由机制': 'basic/route.md'
-        - '系统设置': 'basic/setting.md'
+        - '系统变量': 'basic/setting.md'
         - '菜单管理': 'basic/menu.md'
         - '分类管理': 'basic/taxonomy.md'
         - '标签管理': 'basic/tag.md'
