@@ -1,4 +1,4 @@
-site_name: suda docs v5.0
+site_name: suda docs v8.0
 
 site_url: 'https://docs.gtd.xyz'
 
@@ -7,15 +7,16 @@ docs_dir: 'sources'
 site_dir: 'docs'
 
 nav:
-    - 基本介绍:
-        - 欢迎使用: index.md
-        - 安装步骤: install.md
-        - 更新说明: update.md
-    - 内置功能:
-        - '基础配置': 'basic/config.md'
-        - '路由机制': 'basic/route.md'
+    - 介绍:
+        - '欢迎使用': index.md
+        - '安装步骤': install.md
+        - '更新说明': update.md
+    - 配置:
+        - '参数设置': 'basic/config.md'
         - '系统变量': 'basic/setting.md'
         - '菜单管理': 'basic/menu.md'
+        - '路由机制': 'basic/route.md'
+    - 功能:
         - '分类管理': 'basic/taxonomy.md'
         - '标签管理': 'basic/tag.md'
         - '页面管理': 'basic/pages.md'
@@ -29,15 +30,15 @@ nav:
         - '编辑器': 'basic/editor.md'
         - '权限方案': 'basic/policy.md'
         - '内置函数': 'basic/functions.md'
-    - 开发应用:
+    - 应用:
         - '应用介绍': 'dev-intro.md'
         - '目录信息': 'dev-files.md'
         - '常用命令': 'dev-command.md'
         - '开发应用': 'dev-extension.md'
-    - 设计模板:
+    - 模板:
         - '制作模板': 'theme.md'
         - '模板插件': 'widget.md'
-    - 设计规范:
+    - 规范:
         - '图标制作': 'icons.md'
 
 theme:
