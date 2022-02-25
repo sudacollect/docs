@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>参数设置 - suda docs v8.0</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.2.3, mkdocs-gitbook-">
+
+<link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="../../css/style.min.css" rel="stylesheet">
+<link href="../../css/ecdo.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href="../.." target="_blank" class="custom-link">suda docs v8.0</a>
+</li>
+<li class="divider"></li>
+<li class="header">介绍</li>
+
+<li>
+<a href="../.." class="">欢迎使用</a>
+</li>
+
+<li>
+<a href="../../install/" class="">安装步骤</a>
+</li>
+
+<li>
+<a href="../../update/" class="">更新说明</a>
+</li>
+
+<li class="header">配置</li>
+
+<li>
+<a href="./" class="active">参数设置</a>
+</li>
+
+<li>
+<a href="../setting/" class="">系统变量</a>
+</li>
+
+<li>
+<a href="../menu/" class="">菜单管理</a>
+</li>
+
+<li>
+<a href="../route/" class="">路由机制</a>
+</li>
+
+<li class="header">功能</li>
+
+<li>
+<a href="../taxonomy/" class="">分类管理</a>
+</li>
+
+<li>
+<a href="../tag/" class="">标签管理</a>
+</li>
+
+<li>
+<a href="../pages/" class="">页面管理</a>
+</li>
+
+<li>
+<a href="../articles/" class="">文章管理</a>
+</li>
+
+<li>
+<a href="../extensions/" class="">应用管理</a>
+</li>
+
+<li>
+<a href="../theme/" class="">模板管理</a>
+</li>
+
+<li>
+<a href="../media/" class="">上传图片</a>
+</li>
+
+<li>
+<a href="../avatar/" class="">用户头像</a>
+</li>
+
+<li>
+<a href="../modalbox/" class="">模态框</a>
+</li>
+
+<li>
+<a href="../filterbox/" class="">侧边框</a>
+</li>
+
+<li>
+<a href="../editor/" class="">编辑器</a>
+</li>
+
+<li>
+<a href="../policy/" class="">权限方案</a>
+</li>
+
+<li>
+<a href="../functions/" class="">内置函数</a>
+</li>
+
+<li class="header">应用</li>
+
+<li>
+<a href="../../dev-intro/" class="">应用介绍</a>
+</li>
+
+<li>
+<a href="../../dev-files/" class="">目录信息</a>
+</li>
+
+<li>
+<a href="../../dev-command/" class="">常用命令</a>
+</li>
+
+<li>
+<a href="../../dev-extension/" class="">开发应用</a>
+</li>
+
+<li class="header">模板</li>
+
+<li>
+<a href="../../theme/" class="">制作模板</a>
+</li>
+
+<li>
+<a href="../../widget/" class="">模板插件</a>
+</li>
+
+<li class="header">规范</li>
+
+<li>
+<a href="../../icons/" class="">图标制作</a>
+</li>
+
+<li class="divider"></li>
+
+
+
+
+<li><a href="http://suda.gtd.xyz">
+    Created by Suda
+    </a></li>
+
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+
+
+
+<section class="normal markdown-section">
+
+
+
+<h1 id="_1">参数设置</h1>
+<p><em>config/sudaconf.php</em></p>
+<blockquote>
+<p>部分场景下我们可能想要区分PC端和移动端浏览，不只是页面样式不同，甚至是完全一样的路径，不同的功能等。
+Suda 针对这种情况实现了一个 RedirectMobileMiddleware 用于做区分。</p>
+</blockquote>
+<pre><code># 开启路径自动识别，开启后自动增加移动端路径前缀
+# 例如 a.com/123 自动转为 a.com/mobile/123
+'auto_mobile' =&gt; false,
+
+#设置路径前缀
+'mobile_prefix'=&gt;'mobile',
+
+#设置不需要增加移动前缀的路径
+'except_mobile_prefix'=&gt;[],
+</code></pre>
+<pre><code># 已经废弃
+# Laravel 6之前的版本可能用得到
+'force_secure'=&gt;null,
+</code></pre>
+<p>图片加速</p>
+<pre><code># 启用后图片将使用加速的地址
+# 例如 cdn.a.com 用于图片加速
+'static_host'=&gt;'',
+</code></pre>
+<p>图片上传参数</p>
+<pre><code>'image' =&gt; [
+    'storage'=&gt;'local', //存储方式，目前只支持local
+    'size'=&gt;[
+        'small'=&gt;200, //缩略图小图尺寸
+        'medium'=&gt;400, //缩略图中图尺寸
+    ]
+],
+</code></pre>
+<p>Suda 内置的图片等静态资源</p>
+<pre><code># 非必须无需修改
+'core_assets_path'=&gt;'/vendor/suda/assets',
+</code></pre>
+<h3 id="theme">Theme</h3>
+<p>设置默认使用的主题</p>
+<p>请不要修改</p>
+<pre><code>'theme'=&gt;[
+    'site'  =&gt;'default', //pc website
+    'mobile'=&gt;'default', //mobile website
+],
+</code></pre>
+<h3 id="dashboard">Dashboard</h3>
+<pre><code># 密码链接字符，注意，修改后原密码失效
+'password_link' =&gt; 'zp',
+
+# 后台访问路径入口
+'admin_path' =&gt; 'admin',
+
+# 后台登录账号方式：email,username,phone目前支持三种
+'admin_loginname'=&gt;'email',
+
+# 后台独立的域名
+'admin_host' =&gt; '',
+
+
+# 后台缓存方式
+'admin_cache' =&gt; 'file',
+
+# 默认菜单，可根据项目需要修改成自己的菜单结构
+'default_menu' =&gt; 'suda',
+
+
+# 侧边栏菜单是否启用两级联动效果，目前只支持一个参数: pro
+# 默认关闭
+'sidemenu_style' =&gt; 'pro',
+
+</code></pre>
+<h3 id="_2">后台首页</h3>
+<pre><code># 这个参数用于搭建后台首页，不需要修改
+# 学习开发自定义widget后可设置为自定义的内容
+# 可通过 suda_custom 进行扩展
+'widget'=&gt;[
+    'dashaboard'=&gt;[
+        'start'=&gt;\Gtd\Suda\Widgets\Start::class,
+        'quickin'=&gt;\Gtd\Suda\Widgets\Quickin::class,
+        'news'=&gt;\Gtd\Suda\Widgets\News::class,
+    ],
+    'entry'=&gt;[
+        'extension'=&gt;\Gtd\Suda\Widgets\Entry\Extension::class,
+    ],
+],
+
+</code></pre>
+<pre><code># 这个参数不要修改
+'controllers'=&gt;[
+    'namespace'=&gt;[
+        'admin'=&gt;'Admin',
+        'site'=&gt;'Site',
+        'mobile'=&gt;'Mobile',
+    ]
+],
+</code></pre>
+<pre><code># 这个参数不要修改
+# 通过 suda_custom 进行扩展
+'media'=&gt;[
+    'types_model'=&gt;[
+        // 'page'=&gt;'Gtd\Suda\Models\Page',
+        // 'article'=&gt;'Gtd\Suda\Models\Article',
+    ]
+],
+</code></pre>
+<h2 id="suda_custom">suda_custom 自定义设置</h2>
+<p>在 /config 目录下创建 suda_custom.php 文件</p>
+<pre><code># 完整的例子
+&lt;?php
+
+return [
+    # 分为左右两栏，可增加自定义widget到控制台首页
+    # 例如增加销量统计/商品排行榜等
+    'widget_extends'=&gt;[
+        'left'=&gt;[
+            // 'start'=&gt;\Gtd\Suda\Widgets\Start::class,
+        ],
+        'right'=&gt;[
+            // 'welcome'=&gt;\Gtd\Suda\Widgets\Welcome::class,
+        ]
+    ],
+
+    # 可增加自定义菜单到顶部导航栏
+    # 用于多应用/模块的复杂系统
+    'navi'=&gt;[
+        // [
+        //     'url'=&gt;'index',
+        //     'target'=&gt;'_self',
+        //     'icon'=&gt;'ion-pricetag',
+        //     'name'=&gt;'商品'
+        // ],
+        // [
+        //     'url'=&gt;'index',
+        //     'target'=&gt;'_self',
+        //     'icon'=&gt;'ion-reader',
+        //     'name'=&gt;'订单'
+        // ],
+        // [
+        //     'url'=&gt;'index',
+        //     'target'=&gt;'_self',
+        //     'icon'=&gt;'ion-person',
+        //     'name'=&gt;'会员'
+        // ]
+    ],
+
+    # TODO: 未来这里会更新为新的方案
+    # 自定义图片类型
+    # 用于上传时指定上传参数，例如不指定时
+    # 接受的参数时 $request-&gt;images 表示图片文件
+    # 指定时，例如指定 page
+    # 上传组件中设置page，然后接受的参数就是
+    # $request-&gt;page 表示图片文件
+    'media'=&gt;[
+        'types_model'=&gt;[
+            // 'page'=&gt;'Gtd\Suda\Models\Page',
+            // 'article'=&gt;'Gtd\Suda\Models\Article',
+        ]
+    ],
+];
+
+</code></pre>
+<p>具体以配置文件为准。</p>
+
+
+</section>
+
+
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="../../js/main.js"></script>
+<script src="../../js/gitbook.min.js"></script>
+<script src="../../js/theme.min.js"></script>
+<script>
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?bd2b64ce44c960c3579b7a335aa3fd5c";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    
+</body>
+</html>

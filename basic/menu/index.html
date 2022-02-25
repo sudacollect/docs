@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>菜单管理 - suda docs v8.0</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.2.3, mkdocs-gitbook-">
+
+<link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="../../css/style.min.css" rel="stylesheet">
+<link href="../../css/ecdo.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href="../.." target="_blank" class="custom-link">suda docs v8.0</a>
+</li>
+<li class="divider"></li>
+<li class="header">介绍</li>
+
+<li>
+<a href="../.." class="">欢迎使用</a>
+</li>
+
+<li>
+<a href="../../install/" class="">安装步骤</a>
+</li>
+
+<li>
+<a href="../../update/" class="">更新说明</a>
+</li>
+
+<li class="header">配置</li>
+
+<li>
+<a href="../config/" class="">参数设置</a>
+</li>
+
+<li>
+<a href="../setting/" class="">系统变量</a>
+</li>
+
+<li>
+<a href="./" class="active">菜单管理</a>
+</li>
+
+<li>
+<a href="../route/" class="">路由机制</a>
+</li>
+
+<li class="header">功能</li>
+
+<li>
+<a href="../taxonomy/" class="">分类管理</a>
+</li>
+
+<li>
+<a href="../tag/" class="">标签管理</a>
+</li>
+
+<li>
+<a href="../pages/" class="">页面管理</a>
+</li>
+
+<li>
+<a href="../articles/" class="">文章管理</a>
+</li>
+
+<li>
+<a href="../extensions/" class="">应用管理</a>
+</li>
+
+<li>
+<a href="../theme/" class="">模板管理</a>
+</li>
+
+<li>
+<a href="../media/" class="">上传图片</a>
+</li>
+
+<li>
+<a href="../avatar/" class="">用户头像</a>
+</li>
+
+<li>
+<a href="../modalbox/" class="">模态框</a>
+</li>
+
+<li>
+<a href="../filterbox/" class="">侧边框</a>
+</li>
+
+<li>
+<a href="../editor/" class="">编辑器</a>
+</li>
+
+<li>
+<a href="../policy/" class="">权限方案</a>
+</li>
+
+<li>
+<a href="../functions/" class="">内置函数</a>
+</li>
+
+<li class="header">应用</li>
+
+<li>
+<a href="../../dev-intro/" class="">应用介绍</a>
+</li>
+
+<li>
+<a href="../../dev-files/" class="">目录信息</a>
+</li>
+
+<li>
+<a href="../../dev-command/" class="">常用命令</a>
+</li>
+
+<li>
+<a href="../../dev-extension/" class="">开发应用</a>
+</li>
+
+<li class="header">模板</li>
+
+<li>
+<a href="../../theme/" class="">制作模板</a>
+</li>
+
+<li>
+<a href="../../widget/" class="">模板插件</a>
+</li>
+
+<li class="header">规范</li>
+
+<li>
+<a href="../../icons/" class="">图标制作</a>
+</li>
+
+<li class="divider"></li>
+
+
+
+
+<li><a href="http://suda.gtd.xyz">
+    Created by Suda
+    </a></li>
+
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+
+
+
+<section class="normal markdown-section">
+
+
+
+<h1 id="_1">菜单方案</h1>
+<p>内置有三种基础的方案可以修改菜单设置。</p>
+<h3 id="1">1. 后台菜单管理</h3>
+<pre><code>{!! menu('menu_group_name','view_path' ['current_menu'=&gt;$current_menu]) !!}
+</code></pre>
+<p>在系统后台可以直接创建菜单，菜单的组成由 <code>菜单组</code> 和 <code>菜单项</code> 组成。</p>
+<p>参数1 menu_group_name</p>
+<p>调用菜单组就只需要将第一个参数 <code>menu_group_name</code> 修改成对应的菜单组名称即可。</p>
+<p>参数2 view</p>
+<p>是指菜单的view样式，默认支持<code>sidebar</code>和<code>topbar</code>两种方案。</p>
+<p>参数3 options, 以数组的形式传入。  </p>
+<p>支持的参数</p>
+<p><code>current_menu</code> 表示当前菜单</p>
+<p><code>locale</code> 表示当前语言</p>
+<p><code>sidemenu_style</code> 有 flat 和 icon 两种选项表示是显示文字菜单和图标菜单</p>
+<h3 id="2">2. 自定义导航菜单</h3>
+<p>config/suda_custom.php 配置自定义导航菜单，主要用于定制特殊入口使用</p>
+<pre><code>'navi'=&gt;[
+
+            [
+                'name'=&gt;'测试菜单',
+                'icon'=&gt;'zly-gear-s',
+                'url'=&gt;'menu',
+                'target'=&gt;'',
+                // 'slug'=&gt;'tool',
+                'children'=&gt;[
+                    'tool_extend'=&gt;[
+                        'name'=&gt;'子菜单',
+                        'icon'=&gt;'zly-gear-s',
+                        'url'=&gt;'menu',
+                        'target'=&gt;'',
+                        'slug'=&gt;'tool_extend'
+                    ]
+                ]
+            ],
+
+        ],
+
+</code></pre>
+<p><strong>说明</strong></p>
+<blockquote>
+<p>菜单配置必须配置Slug</p>
+<p>通过 custom-navi 的方式结合自定义开发，也可以实现类似 extension 的效果，适合定制要求特殊的开发需求。</p>
+</blockquote>
+<h3 id="3">3. 应用扩展菜单</h3>
+<p>参考<a href="https://docs.gtd.xyz/dev-extension/">应用开发说明</a></p>
+
+
+</section>
+
+
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="../../js/main.js"></script>
+<script src="../../js/gitbook.min.js"></script>
+<script src="../../js/theme.min.js"></script>
+<script>
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?bd2b64ce44c960c3579b7a335aa3fd5c";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    
+</body>
+</html>

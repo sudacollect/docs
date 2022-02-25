@@ -1,0 +1,11 @@
+.book-summary ul.summary li a{
+    padding-left:30px;
+}
+.book-summary ul.summary li a.active{
+    background: #eee;
+    font-weight: bold;
+}
+
+.book-summary ul.summary li.header{
+    font-size:16px;
+}
