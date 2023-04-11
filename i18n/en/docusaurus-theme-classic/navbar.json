@@ -1,0 +1,18 @@
+{
+    "title": {
+      "message": "Suda Docs",
+      "description": "Laravel admin panel for multiple extensions"
+    },
+    "item.label.开始": {
+      "message": "Tutorial",
+      "description": "Tutorial"
+    },
+    "item.label.Blog": {
+      "message": "Blog",
+      "description": "Navbar item with label Blog"
+    },
+    "item.label.扩展": {
+      "message": "Extensions",
+      "description": "Navbar item with label GitHub"
+    }
+  }
