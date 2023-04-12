@@ -2,11 +2,11 @@
 sidebar_position: 1
 ---
 
-# 开始
+# Intro
 
-开始使用 **Laravel Suda**.
+Let's start with  **Laravel Suda**.
 
-## 版本兼容
+## Versions
 
 ---
 
@@ -18,46 +18,44 @@ sidebar_position: 1
 | 7.x  | 5.2.1 | 7.2~7.4 |
 
 
-### 环境要求
+### Requirments
 
 - [Laravel](https://laravel.com/) version 10.x:
 - [Composer](https://getcomposer.org) version 2.x:
 
 
-### 安装
+### Install
 
-您需要先安装 Laravel , 可以参考官方文档  [Laravel 文档](https://laravel.com/)
+Need to install Laravel before, reference to [Laravel](https://laravel.com/)
 
-1. 引入 Suda
+1. require Suda
 
 ```
 composer require gtdxyz/suda
 ```
-2. 配置数据库
-
-如果已经配置可以忽略
+2. .env
 
 ```
 #========= edit .env =========
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=数据库
-DB_USERNAME=数据库帐号
-DB_PASSWORD=数据库密码
+DB_DATABASE=database_name
+DB_USERNAME=database_user
+DB_PASSWORD=pass
 ```
 
-3. Suda 安装
+3. Suda
 
 ```
 php artisan suda:install
 ```
 
-4. 修改配置文件
+4. suda config
 
 ```
 #========= edit config/app.php =========
-# 中文修改建议
+# If Chinese,
 'locale' => 'zh_CN',
 'timezone' => 'Asia/Shanghai',
 
@@ -68,7 +66,7 @@ php artisan suda:install
         'driver' => 'session',
         'provider' => 'users',
     ],
-	 // 增加 operate guard
+	 // ADD operate guard
     'operate' => [
         'driver'    => 'session',
         'provider'  => 'operates',
@@ -81,7 +79,7 @@ php artisan suda:install
         'model' => App\Models\User::class,
     ],
 	 
-	 // 增加 provider
+	 // ADD provider
     'operates' => [
         'driver' => 'authsuda_provider',
         'model' => Gtd\Suda\Models\Operate::class,
@@ -95,13 +93,13 @@ php artisan suda:install
 
 ```
 
-## 启动信息
+## start
 
 
 ### Suda 10.x
 
-|  项目   | 内容  | 说明  |
+|  Item   | Content  | Remark  |
 |  ----  | ----  | ----  |
-| 后台入口  | yourdomain.com/admin | 可以在 config/sudaconf.php 中修改后台路径|
-| 登录帐号  | admin@suda.run |  |
-| 登录密码  | suda#2021 |  |
+| Login  | yourdomain.com/admin | change 'admin' in config/sudaconf.php|
+| Account  | admin@suda.run |  |
+| Password  | suda#2021 |  |

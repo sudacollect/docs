@@ -2,27 +2,26 @@
 sidebar_position: 2
 ---
 
-# 更新
+# Update
 
 ```
 composer update gtdxyz/suda
 ```
 
-## 资源更新
+## reset assets
 
-**CSS/JS/图片等资源**
+**CSS/JS**
 
 ```
 php artisan suda:reset assets
 ```
 
-**内置主题风格**
+**themes**
 
 ```
 php artisan suda:reset themes
 ```
 
 ```
-#数据表更新
 php artisan migrate
 ```
