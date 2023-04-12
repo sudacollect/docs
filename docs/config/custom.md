@@ -30,7 +30,7 @@ return [
         // ],
     ],
 
-    // 上传类型
+    // 上传媒体类型
     // 上传组件的使用方式 @uploadBox(['good',1,1])
     // 后台接受 request->post['good'] = media_id 图片ID
     'media' => [

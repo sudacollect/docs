@@ -13,6 +13,25 @@ Setting全局变量的四个重要参数：group、key、type、values
 
 ## 方法1: settingTrait
 
+可用的方法列表
+
+```
+public function getSettingByKey( $key,$group = '', $default_value=null, $media_data = true )
+```
+type=serialize时，会自动执行serialize序列化
+
+读取时会自动反序列化
+
+```
+public function saveSettingByKey( $key, $group, $content, $type='text' )
+```
+remove_key = false 时会清空values， 但是不会删除key
+```
+public function deleteSettingByKey( $key, $group, $remove_key = true)
+```
+
+具体使用案例
+
 ```
 <?php
 namespace App\Extensions\Demo\Controllers\Admin\User;

@@ -69,6 +69,8 @@ class HomeController extends AdminController
 
 通过内置的 ```gate``` 方法可以自动判断用户权限集中是否具有此“菜单”的权限。
 
+也支持 Laravel 的 ```Gate```
+
 ### 后台设置
 
 进入系统菜单，系统->角色设置，可以新增或编辑角色，例如我们新增运营管理员
