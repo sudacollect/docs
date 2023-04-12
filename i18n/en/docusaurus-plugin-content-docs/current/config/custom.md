@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# 定制配置
+# Custom
 
 config/suda_custom.php
 
@@ -10,7 +10,7 @@ config/suda_custom.php
 <?php
 
 return [
-    // 扩展后台首页的布局
+    // custom widget
     'widget_extends'=>[
         'left'=>[
             // 'start'=>\Gtd\Suda\Widgets\Start::class,
@@ -20,7 +20,7 @@ return [
         ]
     ],
     
-    // 自定义导航菜单
+    // custom navi
     'navi'=>[
         // [
         //     'url'=>'index',
@@ -30,9 +30,9 @@ return [
         // ],
     ],
 
-    // 上传媒体类型
-    // 上传组件的使用方式 @uploadBox(['good',1,1])
-    // 后台接受 request->post['good'] = media_id 图片ID
+    // custon media_type
+    // example: @uploadBox(['good',1,1])
+    // request->post['good'] = media_id 
     'media' => [
         'good'=>'App\Extensions\Goodmanager\Models\Good',
     ]

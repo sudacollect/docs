@@ -2,35 +2,35 @@
 sidebar_position: 2
 ---
 
-# 全局参数
+# Setting
 
-> 为了系统的安全稳健和效率，建议有限度的使用。
+> For the safety, robustness and efficiency of the system, it is recommended to use limited。
 
-Setting全局变量的四个重要参数：group、key、type、values
+Four important parameters of Setting：group、key、type、values
 
-系统保留使用的group参数为：dashboard, site, extension
-开发时请注意，不要覆盖这些组下面的参数
+Reserved by the system：dashboard, site, extension
+Be careful not to override the parameters under these groups
 
-## 方法1: settingTrait
+## Method1: settingTrait
 
-可用的方法列表
+Function List
 
 ```
 public function getSettingByKey( $key,$group = '', $default_value=null, $media_data = true )
 ```
-type=serialize时，会自动执行serialize序列化
+type=serialize Serialization is automatically performed
 
-读取时会自动反序列化
+Will be deserialized automatically when read
 
 ```
 public function saveSettingByKey( $key, $group, $content, $type='text' )
 ```
-remove_key = false 时会清空values， 但是不会删除key
+remove_key = false will clear values， won't delete key.
 ```
 public function deleteSettingByKey( $key, $group, $remove_key = true)
 ```
 
-具体使用案例
+Examples: 
 
 ```
 <?php
@@ -49,11 +49,11 @@ class UserController extends DashboardController
         //param1: key
         //param2: group
         //param3: values
-        //param4: 数据类型，支持text,serialize
-        //serialize 并且 values 是数组，保存时自动进行seralize进行格式化保存
+        //param4: Data type，support: text,serialize
+        //serialize automatically performed
         $this->saveSettingByKey('user_setting','user',$values,'serialize');
         
-        return $this->responseAjax('success','保存成功','user/setting');
+        return $this->responseAjax('success','Saved!','user/setting');
     }
     
     public function getSetting(){
@@ -62,7 +62,7 @@ class UserController extends DashboardController
 }
 ```
 
-## 方法2: 控制器中的使用方法
+## Method2: Controller
 
 ```
 <?php
@@ -94,10 +94,10 @@ class UserController extends DashboardController
             $settingModel->fill($data)->save();
         }
         
-        //更新Setting缓存
-        //Setting::updateSettings();
+        // update cache
+        // Setting::updateSettings();
         
-        return $this->responseAjax('success','保存成功','user/setting');
+        return $this->responseAjax('success','Saved!','user/setting');
     }
     
     public function getSetting(){

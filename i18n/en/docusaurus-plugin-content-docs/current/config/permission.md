@@ -2,15 +2,15 @@
 sidebar_position: 7
 ---
 
-# 权限设置
+# Permissions
 
-基于路由和菜单的权限设计。
+Based on menu and roles。
 
-### 先看实现原理
+### Detect permission
 
-每个菜单和子菜单都有一个必备的属性slug, 既可以确认菜单的唯一性，也是权限检查的关键要素。
+Each menu and submenu has a mandatory attribute slug, which can not only confirm the uniqueness of the menu, but also a key element of permission checking.
 
-例如菜单结构如下，那么startup_menu.index 和 startup_menu.help 就是到控制器的权限
+For example, the menu structure is as follows, then ```startup_menu.index``` and ```startup_menu.help``` are the permissions to the controller
 
 ```
 'startup_menu'=>[
@@ -26,7 +26,7 @@ sidebar_position: 7
     
     'children' => [
         [
-            'title'     => '入口',
+            'title'     => 'Entry',
             'slug'      => 'index',
             'url'       => 'index',
             'icon_class'=> 'zly-home',
@@ -35,7 +35,7 @@ sidebar_position: 7
             
         ],
         [
-            'title'     => '帮助',
+            'title'     => 'Help',
             'slug'      => 'help',
             'url'       => 'help',
             'icon_class'=> 'zly-home',
@@ -48,7 +48,7 @@ sidebar_position: 7
 ],
 ```
 
-在控制器中，可以这样使用
+Controller: 
 
 ```
 <?php
@@ -67,10 +67,10 @@ class HomeController extends AdminController
 
 ```
 
-通过内置的 ```gate``` 方法可以自动判断用户权限集中是否具有此“菜单”的权限。
+Function ```gate``` will detect permission.
 
-也支持 Laravel 的 ```Gate```
+Support Laravel ```Gate```
 
-### 后台设置
+### Setting
 
-进入系统菜单，系统->角色设置，可以新增或编辑角色，例如我们新增运营管理员
+Login in dashboard，Setting->Role
