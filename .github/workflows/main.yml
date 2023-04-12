@@ -2,12 +2,19 @@ name: sync fork
 on:
   schedule:
   - cron: "0 2 * * 1-5"
+  
 jobs:
   syncfork:
     name: Sync fork
     runs-on: ubuntu-latest
     steps:
-    - name: git checkout
-      run: |
-        git checkout main
-        git merge upstream/main
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        ref: main
+    - name: Merge Upstream
+      uses: exions/merge-upstream@v1
+      with:
+        upstream: sudacollect/docs      # set the upstream repo
+        upstream-branch: main   # set the upstream branch to merge from
+        branch: main          # set the branch to merge to
