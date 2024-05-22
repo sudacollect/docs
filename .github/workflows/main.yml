@@ -1,0 +1,19 @@
+name: sync fork
+on: workflow_dispatch
+
+jobs:
+  syncfork:
+    name: Sync fork
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        ref: main
+        fetch-depth: 0
+    - name: Merge Upstream
+      uses: exions/merge-upstream@v1
+      with:
+        upstream: sudacollect/docs      # set the upstream repo
+        upstream-branch: main   # set the upstream branch to merge from
+        branch: main          # set the branch to merge to
