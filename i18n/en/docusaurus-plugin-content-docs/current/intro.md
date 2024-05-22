@@ -21,7 +21,7 @@ Let's start with  **Laravel Suda**.
 
 ### Requirments
 
-- [Laravel](https://laravel.com/) version 10.x:
+- [Laravel](https://laravel.com/) version 11.x:
 - [Composer](https://getcomposer.org) version 2.x:
 
 

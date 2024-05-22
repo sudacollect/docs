@@ -21,7 +21,7 @@ sidebar_position: 1
 
 ### 环境要求
 
-- [Laravel](https://laravel.com/) version 10.x:
+- [Laravel](https://laravel.com/) version 11.x:
 - [Composer](https://getcomposer.org) version 2.x:
 
 
