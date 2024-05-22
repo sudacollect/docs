@@ -12,7 +12,8 @@ Let's start with  **Laravel Suda**.
 
 |  Laravel   | Suda  | PHP  |
 |  ----  | ----  | ----  |
-| 10.x  | 10.x(dev) | 8.1+ |
+| 11.x  | 11.x(current) | 8.2+ |
+| 10.x  | 10.x | 8.1+ |
 | 9.x  | 9.x | 8.0.2+ |
 | 8.x  | 8.x | 8.0+ |
 | 7.x  | 5.2.1 | 7.2~7.4 |
@@ -54,10 +55,16 @@ php artisan suda:install
 4. suda config
 
 ```
-#========= edit config/app.php =========
+#========= edit .env =========
 # If Chinese,
 'locale' => 'zh_CN',
 'timezone' => 'Asia/Shanghai',
+
+
+#========= edit config/filesystems.php =========
+
+//add to links
+public_path('suda') => storage_path('app/suda'),
 
 #========= edit config/auth.php =========
 
@@ -96,7 +103,7 @@ php artisan suda:install
 ## start
 
 
-### Suda 10.x
+### Suda 10+
 
 |  Item   | Content  | Remark  |
 |  ----  | ----  | ----  |

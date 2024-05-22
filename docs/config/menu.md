@@ -78,4 +78,4 @@ config/suda_custom.php 配置自定义导航菜单，主要用于定制特殊入
 
 ### 3. 应用菜单
 
-参考 [应用开发说明](https://docs.gtd.xyz/docs/extension)
+参考 [应用开发说明](https://docs.panel.cc/docs/extension/config)

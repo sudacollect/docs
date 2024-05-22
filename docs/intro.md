@@ -12,7 +12,8 @@ sidebar_position: 1
 
 |  Laravel   | Suda  | PHP  |
 |  ----  | ----  | ----  |
-| 10.x  | 10.x(dev) | 8.1+ |
+| 11.x  | 11.x(current) | 8.2+ |
+| 10.x  | 10.x | 8.1+ |
 | 9.x  | 9.x | 8.0.2+ |
 | 8.x  | 8.x | 8.0+ |
 | 7.x  | 5.2.1 | 7.2~7.4 |
@@ -56,10 +57,15 @@ php artisan suda:install
 4. 修改配置文件
 
 ```
-#========= edit config/app.php =========
+#========= edit .env =========
 # 中文修改建议
 'locale' => 'zh_CN',
 'timezone' => 'Asia/Shanghai',
+
+#========= edit config/filesystems.php =========
+
+//links 增加
+public_path('suda') => storage_path('app/suda'),
 
 #========= edit config/auth.php =========
 
@@ -98,7 +104,7 @@ php artisan suda:install
 ## 启动信息
 
 
-### Suda 10.x
+### Suda 10+
 
 |  项目   | 内容  | 说明  |
 |  ----  | ----  | ----  |

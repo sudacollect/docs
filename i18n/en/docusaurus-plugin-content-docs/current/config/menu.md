@@ -78,4 +78,4 @@ Must config Slug
 
 ### 3. Extension menu
 
-Reference to [Extension](https://docs.gtd.xyz/docs/extension)
+Reference to [Extension](https://docs.panel.cc/docs/extension)
